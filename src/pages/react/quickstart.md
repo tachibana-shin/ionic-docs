@@ -154,7 +154,7 @@ const Home: React.FC = () => {
 };
 ```
 
-最初の `App` コンポーネントと同じように、特定のIonicコンポーネントのimport、Reactコンポーネントのimport、そしてReactコンポーネント自体のimportがあります。 
+最初の `App` コンポーネントと同じように、特定のIonicコンポーネントのimport、Reactコンポーネントのimport、そしてReactコンポーネント自体のimportがあります。
 
 `IonPage` は、すべてのページ(ルート/URLを持つコンポーネント)のベースコンポーネントであり、Header、Title、Contentコンポーネントなど、フルスクリーンコンポーネントの一般的な構成要素を含んでいます。
 
@@ -319,6 +319,8 @@ const NewItem: React.FC = () => {
 export default NewItem;
 ```
 
+> Each view must contain an `IonPage` component. Page transitions will not work correctly without it. See the [IonPage Documentation](./navigation#ionpage) for more information.
+
 ここの内容は非常に単純で、 `Home` コンポーネントに似ているはずです。新しいのは `IonBackButton` コンポーネントです。これは、前のルートに戻るために使用されます。まっすぐ前に?では、ページをリロードしたらどうなりますか?
 
 この場合、メモリ内の履歴が失われるため、戻るボタンが消えます。これに対処するには、 `defaultHref` 属性値を、履歴がない場合にナビゲートするURLに設定します。
@@ -371,7 +373,7 @@ ionic cap open android
 次に、 [すべての利用可能なAPIs](https://capacitor.ionicframework.com/docs/apis) を確認します。[Camera API](https://capacitor.ionicframework.com/docs/apis/camera) を含むすばらしい機能があります。以下の数行のコードでカメラ機能を実装することができます￥:
 
 ```typescript
-import { IonContent, IonHeader, IonPage, IonTitle, 
+import { IonContent, IonHeader, IonPage, IonTitle,
          IonToolbar, IonButton } from '@ionic/react';
 import React, { useState } from 'react';
 import { Plugins, CameraResultType } from '@capacitor/core';

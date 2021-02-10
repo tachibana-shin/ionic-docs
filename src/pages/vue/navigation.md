@@ -96,7 +96,7 @@ const routes: Array<RouteRecordRaw> = [
 
 また、ルーターAPIを使用して、プログラムでアプリケーション内を移動することもできます:
 
-```typescript
+```html
 <template>
   <ion-page>
     <ion-content>
@@ -109,12 +109,12 @@ const routes: Array<RouteRecordRaw> = [
   import { IonButton, IonContent, IonPage } from '@ionic/vue';
   import { defineComponent } from 'vue';
   import { useRouter } from 'vue-router';
-  
+
   export default defineComponent({
     name: 'HomePage',
     components: {
-      IonButton, 
-      IonContent, 
+      IonButton,
+      IonContent,
       IonPage
     },
     setup() {
@@ -162,7 +162,7 @@ const routes: Array<RouteRecordRaw> = [
 ```typescript
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/dashboard', 
+    path: '/dashboard',
     component: DashboardMainPage,
   },
   {
@@ -181,15 +181,15 @@ Nested Routesは、ルートが他のルートの子としてリストされる�
 ```typescript
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/dashboard/:id', 
+    path: '/dashboard/:id',
     component: DashboardRouterOutlet,
     children: [
       {
         path: '',
         component: DashboardMainPage
       },
-      { 
-        path: 'stats', 
+      {
+        path: 'stats',
         component: DashboardStatsPage
       },
     ]
@@ -207,7 +207,6 @@ const routes: Array<RouteRecordRaw> = [
 
 モバイルアプリケーションでネストされたルートが意味をなすユースケースはほとんどありません。疑わしい場合は、共有URLルート設定を使用します。ネストされたルーティングをタブ以外のコンテキストで使用すると、アプリのナビゲーションが混乱する可能性があるため、使用しないように強く注意しています。
 
-> 例外は、タブの子を操作する場合です。詳しくは [Child Routes within Tabs](#child-routes-within-tabs) をご覧ください。
 
 ## タブの操作
 
@@ -248,7 +247,7 @@ const routes: Array<RouteRecordRaw> = [
 
 まず、 `Tabs` コンポーネントをみていきましょう:
 
-```typescript
+```html
 <template>
   <ion-page>
     <ion-content>
@@ -258,12 +257,12 @@ const routes: Array<RouteRecordRaw> = [
             <ion-icon :icon="triangle" />
             <ion-label>Tab 1</ion-label>
           </ion-tab-button>
-            
+
           <ion-tab-button tab="tab2" href="/tabs/tab2">
             <ion-icon :icon="ellipse" />
             <ion-label>Tab 2</ion-label>
           </ion-tab-button>
-          
+
           <ion-tab-button tab="tab3" href="/tabs/tab3">
             <ion-icon :icon="square" />
             <ion-label>Tab 3</ion-label>
@@ -283,8 +282,8 @@ export default {
   components: { IonContent, IonLabel, IonTabs, IonTabBar, IonTabButton, IonIcon, IonPage },
   setup() {
     return {
-      ellipse, 
-      square, 
+      ellipse,
+      square,
       triangle,
     }
   }
@@ -296,9 +295,8 @@ export default {
 
 ### タブ内の子ルート
 
-先程、ほとんどの経路は共有URL設定で書かれるべきだと論じました。この規則の例外は、子ルートをタブに追加する場合です。これは、タブルートと同じレベルに子ルートを記述した場合、Ionic Vueは子ページとルートタブページを区別できないためです。
+When adding additional routes to tabs you should write them as sibling routes with the parent tab as the path prefix. The example below defines the `/tabs/tab1/view` route as a sibling of the `/tabs/tab1` route. Since this new route has the `tab1` prefix, it will be rendered inside of the `Tabs` component, and Tab 1 will still be selected in the `ion-tab-bar`.
 
-そのため、子ルートをタブに追加する場合は、常にネストされたルートとして記述する必要があります。Ionic Vueは内部ロジックを処理するため、 `IonRouterOutlet` を追加する必要はありません:
 
 ```typescript
 const routes: Array<RouteRecordRaw> = [
@@ -316,13 +314,11 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: 'tab1',
-        component: () => import('@/views/Tab1.vue'),
-        children: [
-          {
-            path: 'child',
-            component: () => import('@/views/Tab1Child.vue')
-          }
-        ]
+        component: () => import('@/views/Tab1.vue')
+      },
+      {
+        path: 'tab1/view',
+        component: () => import('@/views/Tab1View.vue')
       },
       {
         path: 'tab2',
@@ -337,7 +333,10 @@ const routes: Array<RouteRecordRaw> = [
 ]
 ```
 
+<<<<<<< HEAD
 上記の例では、`/tabs/tab 1/child` ルートを `/tabs/tab1` ルートの子として定義しています。
+=======
+>>>>>>> 447ca50135437e4d5920ca4977c747ac6c2493ea
 
 ## IonRouterOutlet
 
@@ -345,7 +344,51 @@ const routes: Array<RouteRecordRaw> = [
 
 テンプレートで設定する際に、 `IonRouterOutlet` の内部には何も指定しないでください。`IonRouterOutlet` は子コンポーネントにネストすることができますが、通常はアプリケーション内のナビゲーションが混乱するため注意が必要です。詳細については、[Shared URLs versus Nested Routes](#shared-urls-versus-nested-routes) を参照してください。
 
+<<<<<<< HEAD
 ## IonRouter インスタンスへのアクセス
+=======
+## IonPage
+
+The `IonPage` component wraps each view in an Ionic Vue app and allows page transitions and stack navigation to work properly. Each view that is navigated to using the router must include an `IonPage` component.
+
+```html
+<template>
+  <ion-page>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Home</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">Hello World</ion-content>
+  </ion-page>
+</template>
+
+<script lang="ts">
+import {
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from '@ionic/vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  components: {
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonTitle,
+    IonToolbar
+  }
+});
+</script>
+```
+
+Components presented via `IonModal` or `IonPopover` do not typically need an `IonPage` component unless you need a wrapper element. In that case, we recommend using `IonPage` so that the component dimensions are still computed properly.
+
+## Accessing the IonRouter Instance
+>>>>>>> 447ca50135437e4d5920ca4977c747ac6c2493ea
 
 Vueアプリケーション内から  `IonRouter` インスタンスにアクセスする必要があるユースケースがいくつかあるかもしれません。例えば、Androidでユーザーがハードウェアの 「戻る」 ボタンを押したときに、アプリケーションのルート・ページにいるかどうかを知ることができます。このようなユースケースでは、コンポーネントに `IonRouter` 依存関係を注入できます。
 
@@ -391,7 +434,7 @@ const routes: Array<RouteRecordRaw> = [
 
 コンポーネントでの使用方法を見てみましょう。
 
-```typescript
+```html
 <template>
   <ion-page>
     <ion-header>
@@ -399,7 +442,7 @@ const routes: Array<RouteRecordRaw> = [
         <ion-title>Details</ion-title>
       </ion-toolbar>
     </ion-header>
-    
+
     <ion-content>
       Detail ID: {{ id }}
     </ion-content>
@@ -414,10 +457,10 @@ import { useRoute } from 'vue-router';
 export default defineComponent({
   name: 'Detail',
   components: {
-    IonContent, 
-    IonHeader, 
-    IonPage, 
-    IonTitle, 
+    IonContent,
+    IonHeader,
+    IonPage,
+    IonTitle,
     IonToolbar
   },
   setup() {
@@ -444,4 +487,3 @@ Vueルータには設定可能な履歴モードが付属しています。さ�
 ## より多くの情報を得るために
 
 Vueルータを使ったVueでのルーティングの詳細については、 http://router.vuejs.org/ のドキュメントをご覧ください。
-

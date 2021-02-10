@@ -5,17 +5,29 @@ tableOfContents: false
 
 <p class='intro'>CapacitorやCordovaを使って、どんなIonicアプリにもネイティブデバイスの機能を簡単に追加できるようにするための、オープンソースのコレクションとプレミアムプラグインと統合します。このことによって、ネイティブパワーのアプリ体験を構築することができます。</p>
 
-<docs-cards class="static-width">
-  <docs-card header="Capacitor plugins" href="https://capacitorjs.com/docs/plugins" img="/docs/assets/img/native/capacitor@2x.png">
-    <p>Ionic teamとCapacitorコミュニティによって構築および保守されている最新のオープンソースネイティブライブラリ。推奨されるネイティブソリューションです。</p>
-  </docs-card>
+<div id="native-enterprise-cards">
+  <a href="https://capacitorjs.com/docs/plugins">
+    <div class="image-wrapper">
+      <img src="/docs/assets/img/native/capacitor@2x.png" width="440" height="222" alt="capacitor logo"/>
+    </div>
+    <div class="heading-group">
+      <header>Capacitor plugins</header>
+      <p>Ionic teamとCapacitorコミュニティによって構築および保守されている最新のオープンソースネイティブライブラリ。推奨されるネイティブソリューションです。</p>
+    </div>
+  </a>
 
-  <docs-card header="Cordova plugins" href="/docs/native/community" img="/docs/assets/img/native/cordova@2x.png">
-    <p>コミュニティによって構築され、維持されている無償のCordovaプラグインとCapacitorプラグインのコレクションで、 TypeScriptラッパーと、開発を容易にするための一貫したAPIと命名規則を備えています。</p>
-  </docs-card>
-</docs-cards>
+  <a href="/docs/native/community">
+    <div class="image-wrapper">
+      <img src="/docs/assets/img/native/cordova@2x.png" width="440" height="222" alt="cordova logo"/>
+    </div>
+    <div class="heading-group">
+      <header>Cordova plugins</header>
+      <p>TypeScriptラッパーと一貫したAPIおよび命名規則を備えた、コミュニティによって構築および保守されている無料のCordovaプラグインのコレクション。</p>
+    </div>
+  </a>
+</div>
 
-<a id="native-enterprise" href="https://ionic.io/docs">
+<a id="native-enterprise" href="https://ionicframework.com/native">
   <div class="image-wrapper">
     <img src="/docs/assets/img/native/native-enterprise@2x.png" width="476" height="228" />
   </div>
@@ -31,8 +43,63 @@ tableOfContents: false
 </a>
 
 <style scoped>
-  .Card-with-image a {
-    border-radius: 16px;
+  #native-enterprise-cards {
+    display: flex;
+
+    margin-inline-start: -1.5rem;
+    margin-block-start: -1.5rem;
+  }
+
+  @media (max-width: 767px) {
+    #native-enterprise-cards {
+      flex-direction: column;
+    }
+    #native-enterprise-cards .image-wrapper img {
+      max-height: 10rem;
+    }
+  }
+
+  #native-enterprise-cards > a {
+    display: block;
+    margin-inline-start: 1.5rem;
+    margin-block-start: 1.5rem;
+
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.08), 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+
+    transition: all 150ms ease;
+  }
+
+  #native-enterprise-cards > a:hover,
+  #native-enterprise-cards > a:active,
+  #native-enterprise-cards > a:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 0.35em 1.175em rgba(2, 8, 20, 0.1), 0 0.175em 0.5em rgba(2, 8, 20, 0.08);
+  }
+
+  #native-enterprise-cards .heading-group {
+    padding: 2rem;
+  }
+
+  #native-enterprise-cards .image-wrapper > img {
+    object-fit: cover;
+    width: 100%;
+  }
+
+  #native-enterprise-cards header {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #010610;
+  }
+
+  #native-enterprise-cards p {
+    font-size: .875rem;
+    line-height: 160%;
+    letter-spacing: -0.01em;
+    color: #5B708B;
   }
 
   #native-enterprise {
@@ -54,6 +121,9 @@ tableOfContents: false
     #native-enterprise {
       flex-direction: column;
     }
+    #native-enterprise .image-wrapper img{
+      max-height: 10rem;
+    }
   }
 
   #native-enterprise:hover,
@@ -74,10 +144,12 @@ tableOfContents: false
 
   #native-enterprise .image-wrapper {
     align-self: stretch;
+    overflow: hidden;
   }
 
   #native-enterprise img {
     height: 100%;
+    max-height: 100%;
     object-fit: cover;    
   }
 
@@ -100,4 +172,5 @@ tableOfContents: false
 
 
 </style>
+
 > These docs are for apps built with Ionic Framework 4.0.0 and greater. For older Ionic v3 projects, please [see here](/docs/v3/native).
