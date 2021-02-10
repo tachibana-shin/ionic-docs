@@ -501,6 +501,8 @@ export default defineComponent({
 </script>
 ```
 
+> Each view must contain an `IonPage` component. Page transitions will not work correctly without it. See the [IonPage Documentation](./navigation#ionpage) for more information.
+
 ここでの内容は、 `Home` コンポーネントに似ています。異なるのは、 `IonBackButton` コンポーネントです。これは、前のrouteに戻るために使用されます。簡単でしょ?わかりました、でもページをリロードしたらどうなりますか?
 
 この場合、インメモリ内から履歴は失われるため、 戻るボタンは表示されません。この問題を解決するには、 `default-href` 属性値を、履歴がない場合にナビゲートするURLに設定します。
@@ -511,7 +513,40 @@ export default defineComponent({
 
 これで、アプリの履歴がない場合も、home routeに戻るための戻るボタンを表示することができます。
 
-## アイコンの追加
+## Calling Methods on Components
+
+In order to call a method on any of the Ionic Vue components, you will first need to get a reference to the component instance. Next, you will need to access the underlying Web Component using `$el` and call the method.
+
+In other framework integrations such as Ionic React, this is not needed as any `ref` you provide is automatically forwarded to the underlying Web Component instance. We are unable to do the same thing here due to limitations in how Vue manages refs.
+
+```html
+<template>
+  <ion-content ref="content">
+    <ion-button @click="scrollToBottom">Scroll to Bottom</ion-button>
+
+    ...
+  </ion-content>
+</template>
+
+<script lang="ts">
+  import { IonButton, IonContent } from '@ionic/vue';
+  import { defineComponent, ref } from 'vue';
+
+  export default defineComponent({
+    components: { IonButton, IonContent },
+    setup() {
+      const content = ref();
+      const scrollToBottom = () => {
+        content.value.$el.scrollToBottom(300);
+      }
+
+      return { content, scrollToBottom }
+    }
+  });
+</script>
+```
+
+## Adding Icons
 
 Ionic Vueには [Ionicons](https://ionicons.com/) がプリインストールされています。開発者がアプリケーションで使用できるオプションはいくつかあります。
 

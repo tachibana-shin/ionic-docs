@@ -99,6 +99,37 @@ const DashboardPage: React.FC<RouteComponentProps> = ({match}) => {
 
 `IonRouterOutlet` は別の `IonRouterOutlet` の子孫であってはいけません。
 
+## IonPage
+
+The `IonPage` component wraps each view in an Ionic React app and allows page transitions and stack navigation to work properly. Each view that is navigated to using the router must include an `IonPage` component.
+
+```typescript
+import {
+  IonContent, 
+  IonHeader,
+  IonPage,
+  IonTitle,
+  IonToolbar
+} from '@ionic/react';
+import React from 'react';
+
+const Home: React.FC = () => {
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Home</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent className="ion-padding">Hello World</IonContent>
+    </IonPage>
+  );
+};
+export default Home;
+```
+
+Components presented via `IonModal` or `IonPopover` do not typically need an `IonPage` component unless you need a wrapper element. In that case, we recommend using `IonPage` so that the component dimensions are still computed properly.
+
 ## Navigation
 
 Ionic Reactアプリでさまざまなビューにルーティングする場合、いくつかのオプションを使用できます。 ここで、 `UsersListPageはIonItem` は `IonItem` の `routerLink` prop を使用して、タップ/クリックされたときに移動するルートを指定します:
