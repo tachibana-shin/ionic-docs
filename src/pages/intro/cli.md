@@ -10,7 +10,7 @@ contributors:
 
 # CLIのインストール
 
-Ionicアプリは、主にIonic CLI（[command-line](/docs/reference/glossary#cli)）を利用して作成・開発します。Ionic CLIは、幅広い開発ツールと開発を手助けするオプションを提供している、Ionic teamが推奨しているインストール方法です。Ionic CLIは、アプリの実行や、Ionic Appflowといった他のサービスに接続などができる重要なツールです。
+Ionicアプリは、主にIonic CLI（[command-line](/docs/reference/glossary#cli)）を利用して作成・開発します。Ionic CLIは、幅広い開発ツールと開発を手助けするオプションを提供している、Ionic teamが推奨しているインストール方法です。Ionic CLIは、アプリの実行や、Appflowといった他のサービスに接続などができる重要なツールです。
 
 <aside id="ionic-wizard">
   <div class="heading-group">
@@ -53,12 +53,7 @@ $ ionic start myApp tabs
 
 ![start app thumbnails](/docs/assets/img/installation/start-app-thumbnails.png)
 
-<<<<<<< HEAD
-
 Ionicアプリのはじめ方をもっと知りたい方は、[スタートガイド](/docs/developing/starting)を参照してください。
-=======
-To learn more about starting Ionic apps, see the [Starting Guide](/docs/developing/starting).
->>>>>>> 447ca50135437e4d5920ca4977c747ac6c2493ea
 
 ## アプリケーションを実行する
 
@@ -69,10 +64,7 @@ $ cd myApp
 $ ionic serve
 ```
 
-<<<<<<< HEAD
 アプリケーションを実行するにはいくつかの方法がありますが、この方法ではじめることをおすすめします。デバイスとエミュレータでアプリケーションを開発してテストする方法については、[Running an App Guide](/docs/developing/previewing)を参照してください。
-=======
-There are a number of other ways to run an app, it's recommended to start with this workflow. To develop and test apps on devices and emulators, see the [Running an App Guide](/docs/developing/previewing).
 
 <style scoped>
   #ionic-wizard {
@@ -143,4 +135,3 @@ There are a number of other ways to run an app, it's recommended to start with t
   }
 
 </style>
->>>>>>> 447ca50135437e4d5920ca4977c747ac6c2493ea

@@ -97,15 +97,13 @@ const DashboardPage: React.FC<RouteComponentProps> = ({match}) => {
 
 `IonRouterOutlet` には、 `Route` と `Redirect` のみを含める必要があります。 他のコンポーネントは、 `Route` の結果、または `IonRouterOutlet` の外部でレンダリングする必要があります。
 
-`IonRouterOutlet` は別の `IonRouterOutlet` の子孫であってはいけません。
-
 ## IonPage
 
 The `IonPage` component wraps each view in an Ionic React app and allows page transitions and stack navigation to work properly. Each view that is navigated to using the router must include an `IonPage` component.
 
 ```typescript
 import {
-  IonContent, 
+  IonContent,
   IonHeader,
   IonPage,
   IonTitle,
@@ -127,8 +125,6 @@ const Home: React.FC = () => {
 };
 export default Home;
 ```
-
-Components presented via `IonModal` or `IonPopover` do not typically need an `IonPage` component unless you need a wrapper element. In that case, we recommend using `IonPage` so that the component dimensions are still computed properly.
 
 ## Navigation
 
