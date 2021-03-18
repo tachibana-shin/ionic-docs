@@ -10,7 +10,7 @@ nextText: 'Environment Setup'
 nextUrl: '/docs/intro/environment'
 ---
 
-Ionic FrameworkはオープンソースのUIツールキットで、HTML、CSS、JavaScriptなどのウェブ技術を使って、<a href="/docs/angular/overview" target="_blank"> Angular</a> や <a href="/docs/react/overview"" target="_blank">React</a> 、 <a href="/docs/vue/overview">Vue</a> といった人気フレームワークと併用することで高性能で高品質なモバイルアプリやデスクトップアプリを作ることができます。
+Ionic FrameworkはオープンソースのUIツールキットで、HTML、CSS、JavaScriptなどのウェブ技術を使って、<a href="/docs/angular/overview"> Angular</a> や <a href="/docs/react/overview">React</a> 、 <a href="/docs/vue/overview">Vue</a> といった人気フレームワークと併用することで高性能で高品質なモバイルアプリやデスクトップアプリを作ることができます。
 
 <a href="/docs/intro/cli">Ionicのインストール</a> や <a href="/docs/intro/next#build-your-first-app">初めての開発</a> を参考に、主な概念を学ぶことができます。
 
