@@ -46,7 +46,47 @@ export default defineComponent({
 })
 ```
 
-> ライフサイクルメソッドを順番に発火させるためには、ページに `IonPage` コンポーネントが使われてる必要があります。
+### Composition API Hooks
+
+These lifecycles can also be expressed using Vue 3's Composition API:
+
+```typescript
+import {
+  IonPage,
+  onIonViewWillEnter,
+  onIonViewDidEnter,
+  onIonViewWillLeave,
+  onIonViewDidLeave
+} from '@ionic/vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'Home',
+  components: {
+    IonPage
+  },
+  setup() {
+    onIonViewDidEnter(() => {
+      console.log('Home page did enter');
+    });
+
+    onIonViewDidLeave(() => {
+      console.log('Home page did leave');
+    });
+
+    onIonViewWillEnter(() => {
+      console.log('Home page will enter');
+    });
+
+    onIonViewWillLeave(() => {
+      console.log('Home page will leave');
+    });
+  }
+})
+```
+
+> Pages in your app need to be using the `IonPage` component in order for lifecycle methods and hooks to fire properly.
+
 
 ## Ionic Frameworkがページのライフを処理する仕組み
 

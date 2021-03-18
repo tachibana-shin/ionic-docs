@@ -150,7 +150,7 @@ export class AppModule {}
 これで、PhotoService クラスで使用できるようになりました。これをインポートします:
 
 ```Javascript
-import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage-angular';
 ```
 
 次に、コンストラクタを使用して挿入します:

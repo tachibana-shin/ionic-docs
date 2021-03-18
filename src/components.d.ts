@@ -168,6 +168,9 @@ export namespace Components {
     interface HeaderMobileCollapse {
         "darkMode": boolean;
     }
+    interface InternalAd {
+        "update": () => Promise<void>;
+    }
     interface IonicSearch {
         "mobile"?: boolean;
     }
@@ -431,6 +434,12 @@ declare global {
         prototype: HTMLHeaderMobileCollapseElement;
         new (): HTMLHeaderMobileCollapseElement;
     };
+    interface HTMLInternalAdElement extends Components.InternalAd, HTMLStencilElement {
+    }
+    var HTMLInternalAdElement: {
+        prototype: HTMLInternalAdElement;
+        new (): HTMLInternalAdElement;
+    };
     interface HTMLIonicSearchElement extends Components.IonicSearch, HTMLStencilElement {
     }
     var HTMLIonicSearchElement: {
@@ -498,6 +507,7 @@ declare global {
         "file-tree-file": HTMLFileTreeFileElement;
         "framework-select": HTMLFrameworkSelectElement;
         "header-mobile-collapse": HTMLHeaderMobileCollapseElement;
+        "internal-ad": HTMLInternalAdElement;
         "ionic-search": HTMLIonicSearchElement;
         "layered-colors-select": HTMLLayeredColorsSelectElement;
         "new-color-generator": HTMLNewColorGeneratorElement;
@@ -667,6 +677,8 @@ declare namespace LocalJSX {
     interface HeaderMobileCollapse {
         "darkMode"?: boolean;
     }
+    interface InternalAd {
+    }
     interface IonicSearch {
         "mobile"?: boolean;
     }
@@ -719,6 +731,7 @@ declare namespace LocalJSX {
         "file-tree-file": FileTreeFile;
         "framework-select": FrameworkSelect;
         "header-mobile-collapse": HeaderMobileCollapse;
+        "internal-ad": InternalAd;
         "ionic-search": IonicSearch;
         "layered-colors-select": LayeredColorsSelect;
         "new-color-generator": NewColorGenerator;
@@ -771,6 +784,7 @@ declare module "@stencil/core" {
             "file-tree-file": LocalJSX.FileTreeFile & JSXBase.HTMLAttributes<HTMLFileTreeFileElement>;
             "framework-select": LocalJSX.FrameworkSelect & JSXBase.HTMLAttributes<HTMLFrameworkSelectElement>;
             "header-mobile-collapse": LocalJSX.HeaderMobileCollapse & JSXBase.HTMLAttributes<HTMLHeaderMobileCollapseElement>;
+            "internal-ad": LocalJSX.InternalAd & JSXBase.HTMLAttributes<HTMLInternalAdElement>;
             "ionic-search": LocalJSX.IonicSearch & JSXBase.HTMLAttributes<HTMLIonicSearchElement>;
             "layered-colors-select": LocalJSX.LayeredColorsSelect & JSXBase.HTMLAttributes<HTMLLayeredColorsSelectElement>;
             "new-color-generator": LocalJSX.NewColorGenerator & JSXBase.HTMLAttributes<HTMLNewColorGeneratorElement>;

@@ -10,7 +10,7 @@ nextText: 'Environment Setup'
 nextUrl: '/docs/intro/environment'
 ---
 
-Ionic FrameworkはオープンソースのUIツールキットで、HTML、CSS、JavaScriptなどのウェブ技術を使って、<a href="/docs/angular/overview" target="_blank"> Angular</a> や <a href="/react" target="_blank">React</a> 、 <a href="/docs/vue/overview">Vue</a> といった人気フレームワークと併用することで高性能で高品質なモバイルアプリやデスクトップアプリを作ることができます。
+Ionic FrameworkはオープンソースのUIツールキットで、HTML、CSS、JavaScriptなどのウェブ技術を使って、<a href="/docs/angular/overview"> Angular</a> や <a href="/docs/react/overview">React</a> 、 <a href="/docs/vue/overview">Vue</a> といった人気フレームワークと併用することで高性能で高品質なモバイルアプリやデスクトップアプリを作ることができます。
 
 <a href="/docs/intro/cli">Ionicのインストール</a> や <a href="/docs/intro/next#build-your-first-app">初めての開発</a> を参考に、主な概念を学ぶことができます。
 
@@ -101,12 +101,12 @@ Ionicは現在、人気のVue3ライブラリを公式にサポートしてい�
 
 ## Ionic CLI
 
-公式の [Ionic CLI](/docs/cli) は、Ionicアプリを迅速に構築し、Ionic開発者に多くの役に立つコマンドを提供するツールです。CLIには、Ionicのインストールとアップデートに加えて、組み込みの開発サーバ、ビルドとデバッグのためのツールなどが含まれています。 [Ionic Appflow](#ionic-appflow) のメンバーの場合は、CLIを使用してクラウドの構築と展開を実行し、アカウントを管理できます。
+公式の [Ionic CLI](/docs/cli) は、Ionicアプリを迅速に構築し、Ionic開発者に多くの役に立つコマンドを提供するツールです。CLIには、Ionicのインストールとアップデートに加えて、組み込みの開発サーバ、ビルドとデバッグのためのツールなどが含まれています。 [Appflow](#ionic-appflow) のメンバーの場合は、CLIを使用してクラウドの構築と展開を実行し、アカウントを管理できます。
 
 
-## Ionic Appflow
+## Appflow
 
-Ionicアプリの構築、デプロイ、ライフサイクルを通じた管理を支援するために、私たちは<strong>オープンソースフレームワークとは分離した</strong>ｍ<a href="https://ionicframework.com/appflow" target="_blank">Ionic Appflow</a>と呼んでいる製品アプリ用の商用サービスを提供しています。
+Ionicアプリの構築、デプロイ、ライフサイクルを通じた管理を支援するために、私たちは<strong>オープンソースフレームワークとは分離した</strong>ｍ<a href="https://ionic.io/appflow" target="_blank">Appflow</a>と呼んでいる製品アプリ用の商用サービスを提供しています。
 
 Appflowは、開発者とチームがネイティブアプリのビルドをコンパイルし、一元化されたダッシュボードからIonicアプリにライブコードアップデートをデプロイするのを支援する。アプリストアへの直接公開、ワークフローの自動化、シングルサインオン(SSO)、接続されたサービスや統合へのアクセスなど、より高度な機能を利用するには、オプションの有償アップグレードを利用できます。
 
