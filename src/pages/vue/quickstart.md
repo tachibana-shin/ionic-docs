@@ -336,18 +336,22 @@ export default defineComponent({
 Ionic Frameworkの別のコンポーネントであるFAB（フローティング・アクション・ボタン）を見てみましょう。FABは、アプリケーションの他の部分よりも上位のメイン・アクションを提供する優れた方法です。このFABには、FAB、FABボタンおよびアイコンの3つのコンポーネントが必要です。
 
 ```html
-<ion-content>
-  <ion-list>
-  ...
-  </ion-list>
+<template>
+  <ion-page>
+    <ion-content>
+      <ion-list>
+      ...
+      </ion-list>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-      <ion-icon :icon="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon :icon="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
 
-</ion-content>
+    </ion-content>
+  </ion-page>
+</template>
 
 <script>
 import { add } from 'ionicons/icons';
@@ -371,23 +375,26 @@ export default defineComponent({
 次に、これにクリックハンドラを設定します。FABボタンをクリックすると、新しいページ(この後、すぐに作成します)に移動します。これを行うには、Vue RouterのナビゲーションAPIにアクセスする必要があります。これは `useRouter` パッケージから `vue-router` をインポートすることで実現できます。
 
 ```html
-import { add } from 'ionicons/icons';
+<template>
+  <ion-page>
+    <ion-content>
+      <ion-list>
+      ...
+      </ion-list>
 
-<ion-content>
-  <ion-list>
-  ...
-  </ion-list>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button @click="() => router.push('/new')">
+          <ion-icon :icon="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button @click="() => router.push('/new')">
-      <ion-icon :icon="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-
-</ion-content>
+    </ion-content>
+  </ion-page>
+</template>
 
 <script>
 import { add } from 'ionicons/icons';
+import { useRouter } from 'vue-router';
 
 ...
 

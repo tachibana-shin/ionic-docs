@@ -95,7 +95,11 @@ export class DocsPage {
       const suffix = /^\/docs\/pages\/appflow.*$/.test(this.path) ?
         'Appflow 日本語ドキュメンテーション' : 'Ionic Framework 日本語ドキュメンテーション';
       // Favor meta title, else go with auto-title. fallback to generic title
-      return meta.title || title ? `${title} - ${suffix}` : suffix;
+      if (meta && meta.title) {
+        return meta.title;
+      }
+
+      return title ? `${title} - ${suffix}` : suffix;
     };
     document.title = getTitle();
     updateMeta(metaEls.title, getTitle);
