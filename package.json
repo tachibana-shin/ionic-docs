@@ -8,7 +8,7 @@
   "scripts": {
     "start": "concurrently -n stencil,pages \"npm run watch-stencil\" \"npm run watch-pages\"",
     "prestart": "npm run -s build-all",
-    "build": "stencil build --prerender --ci && echo '/ /docs/ 302'  >> www/_redirects && echo '/docs/* /docs/index.html 200' >> www/_redirects",
+    "build": "stencil build --prerender --ci && npm run netlify-redirect",
     "build.ci": "npm run prebuild && stencil build --prerender --ci",
     "prebuild": "npm run translate && npm run build-all",
     "lint": "eslint src",
@@ -18,11 +18,12 @@
     "build-pages": "ts-node -P scripts/tsconfig.json scripts/build-pages",
     "build-menus": "ts-node -P scripts/tsconfig.json scripts/build-menus",
     "watch-pages": "ts-node -P scripts/tsconfig.json scripts/watch-pages",
-    "build-case": "git clone https://github.com/ionic-jp/who-use-ionic.git case && cd case && npm ci && npm run build && cd .. && mv case/www www/case && rm -rf case && echo '/case/* /case/index.html 200' >> www/_redirects",
+    "build-site": "git clone https://github.com/ionic-jp/community-site.git site && cd site && npm ci && npm run build.ci && cd .. && mv site/www/* www/ && rm -rf site",
     "translate": "ts-node -P scripts/tsconfig.json scripts/build-translate apply",
     "translate:create": "ts-node -P scripts/tsconfig.json scripts/build-translate create && ts-node -P scripts/tsconfig.json scripts/build-translate diff",
     "watch-stencil": "stencil build --dev --serve --watch",
-    "heroku-postbuild": "npm run build.ci"
+    "heroku-postbuild": "npm run build.ci",
+    "netlify-redirect": "cp redirects www/_redirects"
   },
   "dependencies": {
     "@ionic-internal/ionic-ds": "4.1.4",

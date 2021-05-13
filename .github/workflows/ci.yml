@@ -27,14 +27,13 @@ jobs:
       - name: npm install, build, and test
         run: |
           npm ci
-          npm audit fix
           npm run lint
 
       # ビルドの実行
       - name: app build
         run: |
           npm run build
-          npm run build-case
+          npm run build-site
 
       # デプロイ
       - name: deploy
