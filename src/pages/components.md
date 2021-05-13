@@ -1,4 +1,7 @@
 ---
+meta:
+  title: UI Components | User Interface Application Building Components
+  description: Ionic Framework comes stock with a number of high-level UI components, including cards, lists, and tabs to quickly and easily build your app's user interface.
 tableOfContents: false
 ---
 # UIコンポーネント
@@ -46,7 +49,7 @@ Ionicアプリは、コンポーネントと呼ばれる高レイヤーの構成
     <p>フローティングアクションボタン（FAB）は、画面上で主要な、または最も一般的なアクションを実行する円形のボタンです。</p>
   </docs-card>
 
-  <docs-card header="Icons" href="https://ionicons.com" img="/docs/assets/icons/feature-component-icons-icon.png">
+  <docs-card header="Icons" href="https://ionic.io/ionicons" img="/docs/assets/icons/feature-component-icons-icon.png">
     <p>Web、iOS、Android、デスクトップアプリケーションで使用するために美しくデザインされたアイコン。</p>
   </docs-card>
 

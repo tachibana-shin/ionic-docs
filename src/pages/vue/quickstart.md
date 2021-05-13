@@ -555,7 +555,7 @@ In other framework integrations such as Ionic React, this is not needed as any `
 
 ## Adding Icons
 
-Ionic Vueには [Ionicons](https://ionicons.com/) がプリインストールされています。開発者がアプリケーションで使用できるオプションはいくつかあります。
+Ionic Vueには [Ionicons](https://ionic.io/ionicons/) がプリインストールされています。開発者がアプリケーションで使用できるオプションはいくつかあります。
 
 ### ダイナミックインポート
 

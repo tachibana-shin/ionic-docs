@@ -12,3 +12,5 @@ src/components/search/data/
 scripts/data/translated-*
 .idea
 /.env
+/.docusaurus
+/docs

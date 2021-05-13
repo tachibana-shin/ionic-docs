@@ -106,7 +106,7 @@ nextUrl: '/docs/reference/versioning'
 
   <section id="ionicons">
     <a href="#ionicons"><h3>Ionicons</h3></a>
-    <p><a href="http://ionicons.com/" target="_blank">Ionicons</a> は Ionic社によって作成・利用されているオープンソースのアイコンのセットです。1:1 で iOS とマテリアルデザインのアイコンと、よく使われるソーシャル/アプリケーションのアイコンを含みます。Ionicons はデフォルトで Ionic ディストリビューションに含まれますが、任意のプロジェクトでも使うことが出来ます。</p>
+    <p><a href="https://ionic.io/ionicons/" target="_blank">Ionicons</a> は Ionic社によって作成・利用されているオープンソースのアイコンのセットです。1:1 で iOS とマテリアルデザインのアイコンと、よく使われるソーシャル/アプリケーションのアイコンを含みます。Ionicons はデフォルトで Ionic ディストリビューションに含まれますが、任意のプロジェクトでも使うことが出来ます。</p>
   </section>
 
   <section id="karma">
