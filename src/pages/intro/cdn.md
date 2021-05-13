@@ -162,4 +162,4 @@ IoniconsはデフォルトでIonic Frameworkに同梱されているので、Ion
 <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"></script>
 ```
 
-> アイコンの使い方については [Ionicons usage](https://ionicons.com/usage) をご覧ください。
+> アイコンの使い方については [Ionicons usage](https://ionic.io/ionicons/usage) をご覧ください。
