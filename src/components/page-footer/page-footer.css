@@ -20,3 +20,8 @@ docs-page-footer .page-footer__row {
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
+
+docs-page-footer  .netlify {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+}

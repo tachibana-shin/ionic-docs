@@ -46,6 +46,7 @@ export class DocsPageFooter {
 
     return [
       pagination,
+      <p class="netlify">Caught a mistake or want to contribute to the documentation? <a href="https://github.com/ionic-jp/ionic-docs">Edit this on GitHub!</a> Deployed on <a href="https://www.netlify.com/">Netlify</a>.</p>,
       <div class="page-footer__row">
         {contributors.length > 0 ? <contributor-list contributors={contributors} link={contributorHref}/> : null}
         <docs-button round href={editHref}>翻訳する <ForwardArrow/></docs-button>
