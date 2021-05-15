@@ -72,7 +72,7 @@ export class DocsHeader {
       <header>
         <docs-menu-toggle onClick={this.toggleClickFn}/>
 
-        <a href="https://ionicframework.com">
+        <a href="https://ionicframework.jp">
           <Logo class="HeaderLogo"/>
         </a>
 

@@ -18,5 +18,11 @@ docs-page-footer .page-footer__row {
   display: flex;
   font-size: 12px;
   margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+}
+
+docs-page-footer  .netlify {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  margin-bottom: 2rem;
 }
