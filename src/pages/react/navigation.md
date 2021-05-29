@@ -1,8 +1,8 @@
 ---
-previousText: 'Lifecycle'
-previousUrl: '/docs/react/lifecycle'
-nextText: 'Config'
-nextUrl: '/docs/react/config'
+previousText: "Lifecycle"
+previousUrl: "/docs/react/lifecycle"
+nextText: "Config"
+nextUrl: "/docs/react/config"
 ---
 
 # Reactナビゲーション
@@ -20,17 +20,16 @@ React Routerを使用したルーティングについて知っていること�
 **App.tsx**
 
 ```typescript
-const App: React.FC = () =>
-  (
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route path="/dashboard" component={DashboardPage} />
-          <Redirect exact from="/" to="/dashboard" />
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
-  );
+const App: React.FC = () => (
+  <IonApp>
+    <IonReactRouter>
+      <IonRouterOutlet>
+        <Route path="/dashboard" component={DashboardPage} />
+        <Redirect exact from="/" to="/dashboard" />
+      </IonRouterOutlet>
+    </IonReactRouter>
+  </IonApp>
+);
 ```
 
 `Route` の直後に、デフォルトの `Redirect` を定義します。これは、ユーザーがアプリのルートURL（"/"）にアクセスすると、"/dashboard" URLにリダイレクトします。
@@ -43,7 +42,7 @@ const App: React.FC = () =>
 <Route
   exact
   path="/dashboard"
-  render={props => {
+  render={(props) => {
     return isAuthed ? <DashboardPage {...props} /> : <LoginPage />;
   }}
 />
@@ -75,7 +74,7 @@ const DashboardPage: React.FC = () => {
 ただし、 [`match`](https://reacttraining.com/react-router/web/api/match) オブジェクトの `url` プロパティを使用して、コンポーネントをレンダリングするために match したURLを提供できます。これは、ネストされたルートを操作するときに役立ちます。
 
 ```typescript
-const DashboardPage: React.FC<RouteComponentProps> = ({match}) => {
+const DashboardPage: React.FC<RouteComponentProps> = ({ match }) => {
   return (
     <IonRouterOutlet>
       <Route exact path={match.url} component={UsersListPage} />
@@ -97,6 +96,42 @@ const DashboardPage: React.FC<RouteComponentProps> = ({match}) => {
 
 `IonRouterOutlet` には、 `Route` と `Redirect` のみを含める必要があります。 他のコンポーネントは、 `Route` の結果、または `IonRouterOutlet` の外部でレンダリングする必要があります。
 
+## Fallback Route
+
+A common routing use case is to provide a "fallback" route to be rendered in the event the location navigated to does not match any of the routes defined.
+
+We can define a fallback route by placing a `Route` component without a `path` property as the last route defined within an `IonRouterOutlet`.
+
+**DashboardPage.tsx**
+
+```typescript
+const DashboardPage: React.FC<RouteComponentProps> = ({ match }) => {
+  return (
+    <IonRouterOutlet>
+      <Route exact path={match.url} component={UsersListPage} />
+      <Route path={`${match.url}/users/:id`} component={UserDetailPage} />
+      <Route render={() => <Redirect to={match.url} />} />
+    </IonRouterOutlet>
+  );
+};
+```
+
+Here, we see that in the event a location does not match the first two `Route`s the `IonRouterOutlet` will redirect the Ionic React app to the `match.url` path.
+
+You can alternatively supply a component to render instead of providing a redirect.
+
+```typescript
+const DashboardPage: React.FC<RouteComponentProps> = ({ match }) => {
+  return (
+    <IonRouterOutlet>
+      <Route exact path={match.url} component={UsersListPage} />
+      <Route path={`${match.url}/users/:id`} component={UserDetailPage} />
+      <Route component={NotFoundPage} />
+    </IonRouterOutlet>
+  );
+};
+```
+
 ## IonPage
 
 The `IonPage` component wraps each view in an Ionic React app and allows page transitions and stack navigation to work properly. Each view that is navigated to using the router must include an `IonPage` component.
@@ -107,9 +142,9 @@ import {
   IonHeader,
   IonPage,
   IonTitle,
-  IonToolbar
-} from '@ionic/react';
-import React from 'react';
+  IonToolbar,
+} from "@ionic/react";
+import React from "react";
 
 const Home: React.FC = () => {
   return (
@@ -172,15 +207,16 @@ Outside of these components that have the `routerLink` prop, you can also use Re
 
 ```typescript
 <IonButton
-  onClick={e => {
+  onClick={(e) => {
     e.preventDefault();
-    history.push('/dashboard/users/1');
-  }}>
+    history.push("/dashboard/users/1");
+  }}
+>
   Go to User 1
 </IonButton>
 ```
-> Note: `history` は prop.
 
+> Note: `history` is a prop.
 
 ## URLパラメーター
 
@@ -189,11 +225,12 @@ Dashboard Pageで定義された2番目のルートには、URLパラメータ�
 **UserDetailPage.tsx**
 
 ```typescript
-interface UserDetailPageProps extends RouteComponentProps<{
-  id: string;
-}> {}
+interface UserDetailPageProps
+  extends RouteComponentProps<{
+    id: string;
+  }> {}
 
-const UserDetailPage: React.FC<UserDetailPageProps> = ({match}) => {
+const UserDetailPage: React.FC<UserDetailPageProps> = ({ match }) => {
   return (
     <IonPage>
       <IonHeader>
@@ -201,9 +238,7 @@ const UserDetailPage: React.FC<UserDetailPageProps> = ({match}) => {
           <IonTitle>User Detail</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        User {match.params.id}
-      </IonContent>
+      <IonContent>User {match.params.id}</IonContent>
     </IonPage>
   );
 };
@@ -239,12 +274,11 @@ Tabビューで作業する場合、Ionic Reactには、どのビューがどの
 
 ### IonRouterOutletの `Switch`
 
-`IonRouterOutlet` がどのルートをレンダリングするかを決定するジョブを引き継ぐため、IonRouterOutlet内で使用する場合、React Routerからの `Switch` を使用しても効果はありません。 `IonRouterOutlet` の外部で使用する場合、 `Switch` は引き続き期待どおりに機能します。
+Since `IonRouterOutlet` takes over the job in determining which routes get rendered, using a `Switch` from React Router has no effect when used inside of an `IonRouterOutlet`. Switches still function as expected when used outside an `IonRouterOutlet`.
 
 ## 更に知りたい場合
 
 React Routerを使用したReactでのルーティングの詳細については、次の [https://reacttraining.com/react-router/web](https://reacttraining.com/react-router/web) でドキュメントをご覧ください。
-
 
 ## From the Community
 
